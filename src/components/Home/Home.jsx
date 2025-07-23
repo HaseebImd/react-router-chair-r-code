@@ -70,7 +70,7 @@ export default function Home() {
                                     {category.name}
                                 </h3>
                                 <p className="text-gray-600">
-                                    {category.count} products
+                                    {category.count} Products
                                 </p>
                             </Link>
                         ))}

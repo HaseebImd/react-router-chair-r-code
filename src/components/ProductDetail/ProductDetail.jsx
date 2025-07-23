@@ -5,7 +5,7 @@ import { products } from '../../data/mockData'
 export default function ProductDetail() {
     const { id } = useParams();
     const product = products.find(p => p.id === parseInt(id));
-    
+
     const [selectedSize, setSelectedSize] = useState(product?.sizes[0] || '');
     const [selectedColor, setSelectedColor] = useState(product?.colors[0] || '');
     const [quantity, setQuantity] = useState(1);
@@ -74,18 +74,17 @@ export default function ProductDetail() {
                                 className="w-full h-full object-cover"
                             />
                         </div>
-                        
+
                         {/* Thumbnail Images */}
                         <div className="flex space-x-4">
                             {productImages.map((image, index) => (
                                 <button
                                     key={index}
                                     onClick={() => setActiveImageIndex(index)}
-                                    className={`w-20 h-20 rounded-lg overflow-hidden border-2 transition-all ${
-                                        activeImageIndex === index 
-                                            ? 'border-orange-600' 
-                                            : 'border-gray-200 hover:border-gray-300'
-                                    }`}
+                                    className={`w-20 h-20 rounded-lg overflow-hidden border-2 transition-all ${activeImageIndex === index
+                                        ? 'border-orange-600'
+                                        : 'border-gray-200 hover:border-gray-300'
+                                        }`}
                                 >
                                     <img
                                         src={image}
@@ -169,11 +168,10 @@ export default function ProductDetail() {
                                         <button
                                             key={size}
                                             onClick={() => setSelectedSize(size)}
-                                            className={`px-4 py-2 border rounded-lg font-medium transition-all ${
-                                                selectedSize === size
-                                                    ? 'border-orange-600 bg-orange-50 text-orange-600'
-                                                    : 'border-gray-300 hover:border-gray-400'
-                                            }`}
+                                            className={`px-4 py-2 border rounded-lg font-medium transition-all ${selectedSize === size
+                                                ? 'border-orange-600 bg-orange-50 text-orange-600'
+                                                : 'border-gray-300 hover:border-gray-400'
+                                                }`}
                                         >
                                             {size}
                                         </button>
@@ -191,11 +189,10 @@ export default function ProductDetail() {
                                         <button
                                             key={color}
                                             onClick={() => setSelectedColor(color)}
-                                            className={`px-4 py-2 border rounded-lg font-medium transition-all ${
-                                                selectedColor === color
-                                                    ? 'border-orange-600 bg-orange-50 text-orange-600'
-                                                    : 'border-gray-300 hover:border-gray-400'
-                                            }`}
+                                            className={`px-4 py-2 border rounded-lg font-medium transition-all ${selectedColor === color
+                                                ? 'border-orange-600 bg-orange-50 text-orange-600'
+                                                : 'border-gray-300 hover:border-gray-400'
+                                                }`}
                                         >
                                             {color}
                                         </button>
@@ -233,11 +230,10 @@ export default function ProductDetail() {
                         <div className="flex gap-4">
                             <button
                                 disabled={!product.inStock}
-                                className={`flex-1 py-4 px-8 rounded-lg font-semibold text-lg transition-all ${
-                                    product.inStock
-                                        ? 'bg-orange-600 hover:bg-orange-700 text-white'
-                                        : 'bg-gray-300 text-gray-500 cursor-not-allowed'
-                                }`}
+                                className={`flex-1 py-4 px-8 rounded-lg font-semibold text-lg transition-all ${product.inStock
+                                    ? 'bg-orange-600 hover:bg-orange-700 text-white'
+                                    : 'bg-gray-300 text-gray-500 cursor-not-allowed'
+                                    }`}
                             >
                                 {product.inStock ? 'Add to Cart' : 'Out of Stock'}
                             </button>
