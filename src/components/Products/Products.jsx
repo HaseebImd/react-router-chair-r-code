@@ -75,9 +75,9 @@ export default function Products() {
                 {/* Products Grid */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
                     {filteredProducts.map(product => (
-                        <div key={product.id} className="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 overflow-hidden group">
+                        <div key={product.id} className="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 overflow-hidden group h-[520px] flex flex-col">
                             {/* Product Image */}
-                            <div className="relative overflow-hidden">
+                            <div className="relative overflow-hidden flex-shrink-0">
                                 <img
                                     src={product.image}
                                     alt={product.name}
@@ -112,9 +112,11 @@ export default function Products() {
                             </div>
 
                             {/* Product Info */}
-                            <div className="p-6">
-                                <h3 className="text-lg font-semibold text-gray-900 mb-2 line-clamp-2">
-                                    {product.name}
+                            <div className="p-6 flex flex-col flex-grow">
+                                <h3 className="text-lg font-semibold text-gray-900 mb-2 h-14 overflow-hidden">
+                                    <span className="line-clamp-2">
+                                        {product.name}
+                                    </span>
                                 </h3>
                                 
                                 {/* Rating */}
@@ -140,12 +142,14 @@ export default function Products() {
                                 </div>
 
                                 {/* View Product Button */}
-                                <Link
-                                    to={`/product/${product.id}`}
-                                    className="block w-full bg-orange-600 hover:bg-orange-700 text-white text-center py-3 rounded-lg font-medium transition-colors duration-200"
-                                >
-                                    View Details
-                                </Link>
+                                <div className="mt-auto">
+                                    <Link
+                                        to={`/product/${product.id}`}
+                                        className="block w-full bg-orange-600 hover:bg-orange-700 text-white text-center py-3 rounded-lg font-medium transition-colors duration-200"
+                                    >
+                                        View Details
+                                    </Link>
+                                </div>
                             </div>
                         </div>
                     ))}
